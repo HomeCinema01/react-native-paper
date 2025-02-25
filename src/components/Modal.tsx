@@ -7,6 +7,7 @@ import {
   Pressable,
   View,
   ViewStyle,
+  SafeAreaView,
 } from 'react-native';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -183,11 +184,12 @@ function Modal({
   }
 
   return (
+    <SafeAreaView style={{flex:1, backgroundColor: colors.backdrop}}>
     <Animated.View
       pointerEvents={visible ? 'auto' : 'none'}
       accessibilityViewIsModal
       accessibilityLiveRegion="polite"
-      style={StyleSheet.absoluteFill}
+      style={{flex:1}}
       onAccessibilityEscape={onDismissCallback}
       testID={testID}
     >
@@ -197,6 +199,7 @@ function Modal({
         disabled={!dismissable}
         onPress={dismissable ? onDismissCallback : undefined}
         importantForAccessibility="no"
+        accessibilityElementsHidden={true}
         style={[
           styles.backdrop,
           {
@@ -224,6 +227,7 @@ function Modal({
         </Surface>
       </View>
     </Animated.View>
+    </SafeAreaView>
   );
 }
 

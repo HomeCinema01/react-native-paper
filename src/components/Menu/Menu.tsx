@@ -630,12 +630,15 @@ const Menu = ({
     <View ref={(ref) => (anchorRef.current = ref)} collapsable={false}>
       {isCoordinate(anchor) ? null : anchor}
       {rendered ? (
-        <Portal>
+          <Portal isFocused>
           <Pressable
             accessibilityLabel={overlayAccessibilityLabel}
             accessibilityRole="button"
             onPress={onDismiss}
             style={styles.pressableOverlay}
+            accessibilityViewIsModal={true}
+            importantForAccessibility="no"
+            accessibilityElementsHidden
           />
           <View
             ref={(ref) => (menuRef.current = ref)}
@@ -645,6 +648,8 @@ const Menu = ({
             pointerEvents={pointerEvents}
             onAccessibilityEscape={onDismiss}
             testID={`${testID}-view`}
+            accessibilityElementsHidden={false}
+            importantForAccessibility={'auto'}
           >
             <Animated.View
               pointerEvents={pointerEvents}

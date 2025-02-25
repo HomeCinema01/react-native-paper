@@ -172,6 +172,8 @@ const AppbarContent = ({
           }
           // @ts-expect-error We keep old a11y props for backwards compat with old RN versions
           accessibilityTraits="header"
+          allowFontScaling={false}
+          adjustsFontSizeToFit
           testID={`${testID}-title-text`}
           maxFontSizeMultiplier={titleMaxFontSizeMultiplier}
         >
