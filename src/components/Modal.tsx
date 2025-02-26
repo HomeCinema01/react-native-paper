@@ -184,7 +184,7 @@ function Modal({
   }
 
   return (
-    <SafeAreaView style={{flex:1, backgroundColor: colors.backdrop}}>
+    <SafeAreaView style={{flex:1}}>
     <Animated.View
       pointerEvents={visible ? 'auto' : 'none'}
       accessibilityViewIsModal
